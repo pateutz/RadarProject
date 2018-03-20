@@ -68,14 +68,14 @@ Item_Armor_E_01_Lv1_C
   index: -1
 Item_Attach_Weapon_Lower_AngledForeGrip_C
   rotate: false
-  xy: 0, 640
+  xy: 0, 704
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Item_Attach_Weapon_Lower_Foregrip_C
   rotate: false
-  xy: 0, 704
+  xy: 0, 640
   size: 64, 64
   orig: 64, 64
   offset: 0, 0

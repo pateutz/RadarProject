@@ -102,7 +102,7 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
         val config = Lwjgl3ApplicationConfiguration()
         config.setTitle("[${localAddr.hostAddress} ${sniffOption.name}] - VMRadar v1.2.1")
         config.setWindowIcon(Files.FileType.Internal, "icon.png")
-        config.useOpenGL3(true, 3, 3)
+        config.useOpenGL3(false, 2, 1)
         config.setWindowedMode(initialWindowWidth.toInt(), initialWindowWidth.toInt())
         config.setResizable(true)
         config.setBackBufferConfig(8, 8, 8, 8, 32, 0, 2)
