@@ -7,15 +7,10 @@ import org.pcap4j.core.PcapNetworkInterface.PromiscuousMode.PROMISCUOUS
 import org.pcap4j.packet.*
 import pubgradar.SniffOption.*
 import pubgradar.deserializer.*
-import pubgradar.struct.CMD.selfCoords
-import pubgradar.util.notify
 import java.io.*
 import java.io.File.separator
 import java.net.Inet4Address
 import java.net.InetAddress
-import java.util.*
-import javax.swing.*
-import javax.swing.JOptionPane.*
 import kotlin.collections.ArrayList
 import kotlin.concurrent.thread
 import kotlin.experimental.and
@@ -38,9 +33,7 @@ enum class SniffOption {
 }
 
 val settingHome = "${System.getProperty("user.home")}$separator.pubgradar"
-val settingFile = File("$settingHome${separator}setting.properties")
-const val PROP_NetworkInterface = "NetworkInterface"
-const val PROP_SniffOption = "SniffOption"
+
 class Sniffer {
 
   companion object : GameListener {
@@ -147,6 +140,7 @@ class Sniffer {
 
             if (udp.header.dstPort.valueAsInt() in 7000..7999)
               packets.add(Pair(raw, false))
+
             else if (udp.header.srcPort.valueAsInt() in 7000..7999)
               packets.add(Pair(raw, true))
           } catch (e: Exception) {
@@ -171,17 +165,15 @@ class Sniffer {
               val ip = packet[IpPacket::class.java]
               val udp = Sniffer.udp_payload(packet) ?: continue
               val raw = udp.payload.rawData
-//                if (raw.size == 44)
-//                  parseSelfLocation(raw)
+
               if (udp.header.dstPort.valueAsInt() in 7000..7999)
                 packets.add(Pair(raw, false))
-//              proc_raw_packet(raw, false)
+
               else if (udp.header.srcPort.valueAsInt() in 7000..7999)
                 packets.add(Pair(raw, true))
-//            proc_raw_packet(raw, true)
+
             } catch (e: Exception) {
               e.printStackTrace()
-//              println(e.message)
             }
             Thread.sleep(2)
 

@@ -257,14 +257,14 @@ Item_Back_C_02_Lv3_C
   index: -1
 Item_Back_E_01_Lv1_C
   rotate: false
-    xy: 64, 448
+    xy: 448, 64
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Item_Back_E_02_Lv1_C
   rotate: false
-    xy: 64, 448
+    xy: 448, 64
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
@@ -285,14 +285,14 @@ Item_Back_F_02_Lv2_C
   index: -1
 Item_Boost_AdrenalineSyringe_C
   rotate: false
-  xy: 0, 448
+  xy: 448, 0
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Item_Boost_EnergyDrink_C
   rotate: false
-  xy: 0, 320
+  xy: 320, 0 
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
