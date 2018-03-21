@@ -48,6 +48,7 @@ import pubgradar.struct.PlayerState
 import pubgradar.struct.Team
 import pubgradar.struct.Weapon
 import pubgradar.struct.CMD.*
+import pubgradar.struct.CMD.ActorCMD.actorWithPlayerState
 import pubgradar.struct.CMD.GameStateCMD.ElapsedWarningDuration
 import pubgradar.struct.CMD.GameStateCMD.MatchElapsedMinutes
 import pubgradar.struct.CMD.GameStateCMD.NumAlivePlayers
