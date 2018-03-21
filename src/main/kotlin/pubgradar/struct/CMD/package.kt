@@ -3,8 +3,6 @@ package pubgradar.struct.CMD
 import pubgradar.struct.*
 import pubgradar.struct.Archetype.*
 import pubgradar.struct.CMD.Processor.processors
-import wumo.pubg.struct.CMD.AirDropCMD
-import wumo.pubg.struct.CMD.DeathDropItemPackageCMD
 
 typealias processor = (Actor,Bunch,NetGuidCacheObject?,Int,HashMap<String,Any?>) -> Boolean
 

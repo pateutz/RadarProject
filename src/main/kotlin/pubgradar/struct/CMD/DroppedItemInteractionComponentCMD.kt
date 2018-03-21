@@ -1,6 +1,7 @@
 package pubgradar.struct.CMD
 
 import com.badlogic.gdx.math.Vector2
+import pubgradar.util.debugln
 import pubgradar.deserializer.channel.ActorChannel.Companion.droppedItemCompToItem
 import pubgradar.deserializer.channel.ActorChannel.Companion.droppedItemLocation
 import pubgradar.struct.*
@@ -88,7 +89,8 @@ object DroppedItemInteractionComponentCMD {
       }
     }
     return true
-  }catch (e: Exception){ println("DroppedItemInterComp is throwing somewhere: $e ${e.stackTrace} ${e.message}") }
+   }catch (e: Exception){ debugln{("DroppedItemInteractionComp is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}")}
+   }
    return false
   }
 }

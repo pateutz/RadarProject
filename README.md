@@ -31,8 +31,8 @@ SDK Dumped by (legitnutty33) Thank You!
 * F12 -> Toggle View Line
 
 
-## How to: Build, Install and RUN PUBG Radar
-https://youtu.be/H_gud8xuP-s
+## How to: Build, Install and RUN MINECRAFT Radar
+https://youtu.be/uppdw51DiZQ
 
 ### Online Mode:
 `java -jar target\RadarProject-Jerry1211-FORK-jar-with-dependencies.jar "Middle PC IP" PortFilter "Game PC IP"`
@@ -130,7 +130,8 @@ User and Password as the ones you created earlier and now click save.
 
 Now try to connect to your VPN and if it succeeded you are ready to go
 
-#### Some image for both methods: https://docs.google.com/document/d/1hrmnwMoVWmH7GTRwHEeOpGHgehKsETgJRQTacAtgIHQ
+#### Read the Guide thats provided
+Located in the Help folder
 
 ## Run
 -----------------

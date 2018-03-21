@@ -75,6 +75,7 @@ import kotlin.math.*
 typealias renderInfo = tuple4<Actor, Float, Float, Float>
 
 val itemIcons = HashMap<String, AtlasRegion>()
+val crateIcons = HashMap<String, AtlasRegion>()
 
 class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), ApplicationListener, GameListener {
     companion object {
@@ -130,6 +131,7 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
     lateinit var alarmSound: Sound
     lateinit var pawnAtlas: TextureAtlas
     lateinit var itemAtlas: TextureAtlas
+    lateinit var crateAtlas: TextureAtlas
     lateinit var markerAtlas: TextureAtlas
     lateinit var markers: Array<TextureRegion>
     private lateinit var parachute: Texture
@@ -326,8 +328,8 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
             Input.Keys.valueOf(jsettings.filterAmmo_Key) -> filterAmmo = filterAmmo * -1
 
         // Zoom In/Out || Overrides Max/Min Zoom
-            Input.Keys.valueOf(jsettings.camera_zoom_Minus_Key) -> camera.zoom = camera.zoom + 0.00525f
-            Input.Keys.valueOf(jsettings.camera_zoom_Plus_Key) -> camera.zoom = camera.zoom - 0.00525f
+            Input.Keys.valueOf(jsettings.camera_zoom_Minus_Key) -> mapCamera.zoom = mapCamera.zoom + 0.00525f
+            Input.Keys.valueOf(jsettings.camera_zoom_Plus_Key) -> mapCamera.zoom = mapCamera.zoom - 0.00525f
 
         }
         return false
@@ -403,9 +405,15 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
         parachute = Texture(Gdx.files.internal("images/parachute.png"))
 
         parachute = Texture(Gdx.files.internal("images/parachute.png"))
+
         itemAtlas = TextureAtlas(Gdx.files.internal("icons/itemIcons.txt"))
         for (region in itemAtlas.regions)
             itemIcons[region.name] = region.apply { flip(false, true) }
+
+
+        crateAtlas = TextureAtlas(Gdx.files.internal("icons/crateIcons.txt"))
+        for (region in crateAtlas.regions)
+            crateIcons[region.name] = region.apply { flip(false, true) }
 
         pawnAtlas = TextureAtlas(Gdx.files.internal("icons/APawnIcons.txt"))
         for (region in pawnAtlas.regions)
@@ -513,18 +521,6 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
     }
 
     private val dirUnitVector = Vector2(1f, 0f)
-    fun drawMapMarkers() {
-        paint (camera.combined) {
-            for (team in teams.values) {
-                if (team.showMapMarker) {
-                    //println(team.mapMarkerPosition)
-                    val icon = markers[team.memberNumber]
-                    val (x, y) = team.mapMarkerPosition
-                    draw(icon, x, y, 0f, mapMarkerScale, false)
-                }
-            }
-        }
-    }
 
     override fun render() {
         Gdx.gl.glClearColor(bgColor.r, bgColor.g, bgColor.b, bgColor.a)
@@ -929,14 +925,21 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
         }
         //draw self
           drawMyself(tuple4(actors[selfID] ?: return,selfCoords.x,selfCoords.y,selfDirection))
+
         players?.forEach {
 
             val (actor, x, y, dir) = it
             val (sx, sy) = Vector2(x, y).mapToWindow()
-            val teamId = isTeamMate(actor)
+            val playerStateGUID = actorWithPlayerState[actor.netGUID] ?: return@forEach
+            val PlayerState = actors[playerStateGUID] as? PlayerState ?: return@forEach
+            val selfStateGUID = actorWithPlayerState[selfID] ?: return@forEach
+            val selfState = actors[selfStateGUID] as? PlayerState ?: return@forEach
 
-            if (teamId > 0) {
 
+           // val teamId = isTeamMate(actor)
+            //println(teamId)
+          // if (teamId > 0) {
+            if (PlayerState.teamNumber == selfState.teamNumber) {
                 // Can't wait for the "Omg Players don't draw issues
                 spriteBatch.draw(
                         teamarrow,
@@ -1415,19 +1418,20 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
             if (it._3 && mapCamera.zoom > itemZoomThreshold) return@forEach
             val (x, y) = it._1
             val items = it._2
-            val icon = itemIcons[items]
-            icon!!
+            val icon = itemIcons[items]!!
             val scale = if (it._3) itemScale else staticItemScale
-            if (items in Crateitems) {
-                hpgreen.draw(spriteBatch, "$items", x - scale, y - scale)
 
-                draw(icon, x, y, 0f, scale, it._3)
-            }
             if ((items !in weaponsToFilter && items !in scopesToFilter && items !in attachToFilter && items !in level2Filter
                             && items !in ammoToFilter && items !in healsToFilter) && items !in throwToFilter) {
+                if (items in crateIcons) {
 
+                    val adt = crateIcons[items]!!
+                    draw(adt, x + 50, y, 0f, airDropTextScale, it._3)
+
+                }
+                else{
                 draw(icon, x, y, 0f, scale, it._3)
-            }
+            }}
         }
     }
 
@@ -1467,6 +1471,7 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
 
 
             when (nameToggles) {
+
                 0 ->
                 {}
 
@@ -1509,6 +1514,7 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
                             sx + 20, windowHeight - sy + 20)
                 }
                 3 -> {
+
                     nameFont.draw(spriteBatch, "|N: $name\n|D: ${distance}m", sx + 20, windowHeight - sy + 20)
                     // rectLine(x - width / 2, hpY, x - width / 2 + healthWidth, hpY, height)
                 }
@@ -1703,6 +1709,7 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
         mapMiramar.dispose()
         carePackage.texture.dispose()
         itemAtlas.dispose()
+        crateAtlas.dispose()
         pawnAtlas.dispose()
         spriteBatch.dispose()
         shapeRenderer.dispose()
