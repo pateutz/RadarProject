@@ -1,5 +1,6 @@
 package pubgradar
 
+import main.util.Settings
 import org.pcap4j.core.Pcaps
 import org.pcap4j.packet.IpPacket
 import pubgradar.deserializer.*
@@ -38,5 +39,6 @@ fun sniffLocationOffline() {
 fun main(args: Array<String>) {
 //  System.setOut(PrintStream("dump"))
   sniffLocationOffline()
-  GLMap().show()
+  val jsettings = Settings()
+  GLMap(jsettings.loadsettings()).show()
 }
