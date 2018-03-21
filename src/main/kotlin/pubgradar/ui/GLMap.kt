@@ -171,26 +171,27 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
     private val aimStartTime = HashMap<NetworkGUID, Long>()
     private val attackLineStartTime = LinkedList<Triple<NetworkGUID, NetworkGUID, Long>>()
     private val pinLocation = Vector2()
-    // Menu Settings
-    //////////////////////////////
-    private var filterWeapon = -1
-    private var filterAttach = -1
-    private var filterLvl2 = 1
-    private var filterScope = -1
-    private var filterHeals = -1
-    private var filterAmmo = 1
-    private var filterThrow = 1
-    private var drawcompass = -1
-    private var drawmenu = 1
-    private var toggleView = 1
-    private var drawDaMap = 1
+
+
+    // Please Change Your Settings in Util/Settings.kt
+    private var filterWeapon = jsettings.filterWeapon
+    private var filterAttach = jsettings.filterAttach
+    private var filterLvl2 = jsettings.filterLvl2
+    private var filterScope = jsettings.filterScope
+    private var filterHeals = jsettings.filterHeals
+    private var filterAmmo = jsettings.filterAmmo
+    private var filterThrow = jsettings.filterThrow
+    private var drawcompass = jsettings.drawcompass
+    private var drawmenu = jsettings.drawmenu
+    private var toggleView = jsettings.toggleView
+    private var drawDaMap = jsettings.drawDaMap
+    // Please Change Your Settings in Util/Settings.kt
     // private var toggleVehicles = -1
     //  private var toggleVNames = -1
-    private var drawMinimap = -1
-    private var nameToggles = 4
-    private var VehicleInfoToggles = 1
-    private var ZoomToggles = 1
-    ///////////////////////////
+
+    private var nameToggles = jsettings.nameToggles
+    private var VehicleInfoToggles = jsettings.VehicleInfoToggles
+    private var ZoomToggles = jsettings.ZoomToggles
     private var scopesToFilter = arrayListOf("")
     private var weaponsToFilter = arrayListOf("")
     private var attachToFilter = arrayListOf("")
@@ -318,7 +319,7 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
                 }
             }
 
-
+        // Please Change Your Settings in Util/Settings.kt
         // Other Filter Keybinds
             Input.Keys.valueOf(jsettings.drawcompass_Key) -> drawcompass = drawcompass * -1
 
@@ -344,6 +345,7 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
             Input.Keys.valueOf(jsettings.camera_zoom_Minus_Key) -> mapCamera.zoom = mapCamera.zoom + 0.00525f
             Input.Keys.valueOf(jsettings.camera_zoom_Plus_Key) -> mapCamera.zoom = mapCamera.zoom - 0.00525f
 
+        // Please Change Your Settings in Util/Settings.kt
         }
         return false
     }
