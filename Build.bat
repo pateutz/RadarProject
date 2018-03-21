@@ -11,6 +11,6 @@ echo ---------------------------------------------------------------------
 
 timeout 10
 
-mvn clean verify install
+mvn -T 1C clean verify install
 
 timeout 10

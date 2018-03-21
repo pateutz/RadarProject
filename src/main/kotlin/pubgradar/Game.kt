@@ -1,5 +1,6 @@
 package pubgradar
 
+import main.util.Settings
 import pubgradar.ui.GLMap
 import java.util.Collections.newSetFromMap
 import java.util.concurrent.ConcurrentHashMap
@@ -49,12 +50,14 @@ fun main(args: Array<String>) {
       println("Loading PCAP File.")
 
       Sniffer.sniffLocationOffline()
-      val ui = GLMap()
+      val jsettings = Settings()
+      val ui = GLMap(jsettings.loadsettings())
       ui.show()
     }
     else -> {
       Sniffer.sniffLocationOnline()
-      val ui = GLMap()
+      val jsettings = Settings()
+      val ui = GLMap(jsettings.loadsettings())
       ui.show()
     }
   }
