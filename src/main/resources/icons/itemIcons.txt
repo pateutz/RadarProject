@@ -145,7 +145,7 @@ Item_Attach_Weapon_Muzzle_Compensator_SniperRifle_C
   index: -1
 Item_Attach_Weapon_Muzzle_FlashHider_Large_C
   rotate: false
-  xy: 256, 640
+  xy: 512, 768
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
@@ -159,7 +159,7 @@ Item_Attach_Weapon_Muzzle_FlashHider_Medium_C
   index: -1
 Item_Attach_Weapon_Muzzle_FlashHider_SniperRifle_C
   rotate: false
-  xy: 384, 640
+  xy: 512, 704
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
