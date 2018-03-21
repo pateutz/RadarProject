@@ -1,5 +1,6 @@
 package pubgradar.struct.CMD
 
+import pubg.radar.debugln
 import pubgradar.GameListener
 import pubgradar.deserializer.channel.ActorChannel.Companion.attacks
 import pubgradar.deserializer.channel.ActorChannel.Companion.selfID
@@ -218,7 +219,7 @@ object PlayerStateCMD: GameListener {
           }
           return true
       }
-      catch (e: Exception){ println("PlayerState is throwing somewhere: $e ${e.stackTrace} ${e.message}")}
+  catch (e: Exception){ debugln{("PlayerStateCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}")} }
       return false
   }
 }

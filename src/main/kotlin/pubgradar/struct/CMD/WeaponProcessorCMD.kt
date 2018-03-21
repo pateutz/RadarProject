@@ -1,5 +1,6 @@
 package pubgradar.struct.CMD
 
+import pubg.radar.debugln
 import pubgradar.deserializer.channel.ActorChannel.Companion.actorHasWeapons
 import pubgradar.struct.*
 import pubgradar.util.DynamicArray
@@ -31,7 +32,8 @@ object WeaponProcessorCMD {
       }
       return true
     }
-   }catch (e: Exception){ println("WeaponProcessor is throwing somewhere: $e ${e.stackTrace} ${e.message}") }
+   }catch (e: Exception){ debugln{("WeaponProcessor is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}")}
+   }
       return false
   }
 }

@@ -1,6 +1,7 @@
 package pubgradar.struct.CMD
 
 import com.badlogic.gdx.math.Vector2
+import pubg.radar.debugln
 import pubgradar.deserializer.byteRotationScale
 import pubgradar.deserializer.channel.ActorChannel.Companion.playerStateToActor
 import pubgradar.struct.*
@@ -394,7 +395,8 @@ object CharacterCMD {
       }
       return true
     }
-  }catch (e: Exception){ println("CharacterReplicator is throwing somewhere: $e ${e.stackTrace} ${e.message}") }
+   }catch (e: Exception){ debugln{("CharacterCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}")}
+   }
 return false
   }
 }

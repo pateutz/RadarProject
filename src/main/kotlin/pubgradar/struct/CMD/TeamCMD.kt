@@ -1,5 +1,6 @@
 package pubgradar.struct.CMD
 
+import pubg.radar.debugln
 import pubgradar.struct.*
 
 object TeamCMD {
@@ -76,7 +77,8 @@ object TeamCMD {
       }
       return true
     }
- }catch (e: Exception){ println("TeamRep is throwing somewhere: $e ${e.stackTrace} ${e.message}") }
+ }catch (e: Exception){ debugln{("TeamCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}")}
+ }
       return false
   }
 }
