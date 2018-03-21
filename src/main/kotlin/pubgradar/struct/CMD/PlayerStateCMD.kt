@@ -150,7 +150,7 @@ object PlayerStateCMD: GameListener {
                   }
                   38 -> {
                       val NumKills = propertyInt()
-                      println("NUM KILLS: $NumKills")
+                    //  println("NUM KILLS: $NumKills")
                       // actor.numKills = NumKills
                       playerNumKills[actor.netGUID] = NumKills
 

@@ -75,6 +75,7 @@ import kotlin.math.*
 typealias renderInfo = tuple4<Actor, Float, Float, Float>
 
 val itemIcons = HashMap<String, AtlasRegion>()
+val crateIcons = HashMap<String, AtlasRegion>()
 
 class GLMap : InputAdapter(), ApplicationListener, GameListener {
     companion object {
@@ -130,6 +131,7 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
     lateinit var alarmSound: Sound
     lateinit var pawnAtlas: TextureAtlas
     lateinit var itemAtlas: TextureAtlas
+    lateinit var crateAtlas: TextureAtlas
     lateinit var markerAtlas: TextureAtlas
     lateinit var markers: Array<TextureRegion>
     private lateinit var parachute: Texture
@@ -326,8 +328,8 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
             NUMPAD_0 -> filterAmmo = filterAmmo * -1
 
         // Zoom In/Out || Overrides Max/Min Zoom
-            MINUS -> camera.zoom = camera.zoom + 0.00525f
-            PLUS -> camera.zoom = camera.zoom - 0.00525f
+            MINUS -> mapCamera.zoom = mapCamera.zoom + 0.00625f
+            PLUS ->mapCamera.zoom = mapCamera.zoom - 0.00625f
 
         }
         return false
@@ -403,9 +405,15 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
         parachute = Texture(Gdx.files.internal("images/parachute.png"))
 
         parachute = Texture(Gdx.files.internal("images/parachute.png"))
+
         itemAtlas = TextureAtlas(Gdx.files.internal("icons/itemIcons.txt"))
         for (region in itemAtlas.regions)
             itemIcons[region.name] = region.apply { flip(false, true) }
+
+
+        crateAtlas = TextureAtlas(Gdx.files.internal("icons/crateIcons.txt"))
+        for (region in crateAtlas.regions)
+            crateIcons[region.name] = region.apply { flip(false, true) }
 
         pawnAtlas = TextureAtlas(Gdx.files.internal("icons/APawnIcons.txt"))
         for (region in pawnAtlas.regions)
@@ -514,18 +522,6 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
     }
 
     private val dirUnitVector = Vector2(1f, 0f)
-    fun drawMapMarkers() {
-        paint (camera.combined) {
-            for (team in teams.values) {
-                if (team.showMapMarker) {
-                    //println(team.mapMarkerPosition)
-                    val icon = markers[team.memberNumber]
-                    val (x, y) = team.mapMarkerPosition
-                    draw(icon, x, y, 0f, mapMarkerScale, false)
-                }
-            }
-        }
-    }
 
     override fun render() {
         Gdx.gl.glClearColor(bgColor.r, bgColor.g, bgColor.b, bgColor.a)
@@ -1402,19 +1398,20 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
             if (it._3 && mapCamera.zoom > itemZoomThreshold) return@forEach
             val (x, y) = it._1
             val items = it._2
-            val icon = itemIcons[items]
-            icon!!
+            val icon = itemIcons[items]!!
             val scale = if (it._3) itemScale else staticItemScale
-            if (items in Crateitems) {
-                hpgreen.draw(spriteBatch, "$items", x - scale, y - scale)
 
-                draw(icon, x, y, 0f, scale, it._3)
-            }
             if ((items !in weaponsToFilter && items !in scopesToFilter && items !in attachToFilter && items !in level2Filter
                             && items !in ammoToFilter && items !in healsToFilter) && items !in throwToFilter) {
+                if (items in crateIcons) {
 
+                    val adt = crateIcons[items]!!
+                    draw(adt, x + 50, y, 0f, airDropTextScale, it._3)
+
+                }
+                else{
                 draw(icon, x, y, 0f, scale, it._3)
-            }
+            }}
         }
     }
 
@@ -1454,7 +1451,7 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
 
 
             when (nameToggles) {
-                
+
                 0 ->
                 {}
 
@@ -1692,6 +1689,7 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
         mapMiramar.dispose()
         carePackage.texture.dispose()
         itemAtlas.dispose()
+        crateAtlas.dispose()
         pawnAtlas.dispose()
         spriteBatch.dispose()
         shapeRenderer.dispose()

@@ -31,18 +31,22 @@ const val attackLineDuration=1000
 const val attackMeLineDuration=10000
 const val firingLineDuration = 500
 const val firingLineLength = 20000f
-const val itemZoomThreshold=0.07f
+const val itemZoomThreshold=0.06f
+const val airDropTextScale = 1000f
 
 const val itemScale = 16f
 const val staticItemScale = 200f
 const val mapMarkerScale = 150f
-const val airDropScale = 150f
+const val airDropScale = 250f
 const val vehicleScale = 25f
-const val planeScale = 200f
+const val planeScale = 350f
 const val grenadeScale = 15f
-const val corpseScale = 12f
-const val redzoneBombScale = 50f
-const val redzongBombShowDuration = 3000
+const val corpseScale = 30f
+const val redzoneBombScale = 30f
+
+// 1000ms = 1sec
+const val redzongBombShowDuration = 2000
+const val airDropShowDuration = 40000
 
 val bgColor=Color(0.417f,0.417f,0.417f,1f)
 val selfColor=Color(0x32cd32ff)
