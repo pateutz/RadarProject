@@ -214,6 +214,8 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
    private var weaponsToFilter = arrayListOf("")
    private var attachToFilter = arrayListOf("")
    private var level2Filter = arrayListOf("")
+   private var level3Filter = arrayListOf("")
+   private var level23Filter = arrayListOf("")
    private var level1Filter = arrayListOf("")
    private var healsToFilter = arrayListOf("")
    private var ammoToFilter = arrayListOf("")
@@ -390,11 +392,11 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
       // Level 1 and 2 item filters
          Input.Keys.valueOf(jsettings.filterLvl2_Key)         ->
          {
-            if (filterLvl2 < 3)
+            if (filterLvl2 < 5)
             {
                filterLvl2 += 1
             }
-            if (filterLvl2 == 3)
+            if (filterLvl2 == 5)
             {
                filterLvl2 = 0
             }
@@ -862,7 +864,14 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
                menuFontOn.draw(spriteBatch , "Level 1" , 187f , windowHeight / 2 + 85f)
 
             if (filterLvl2 == 2)
-               menuFontOn.draw(spriteBatch , "Level 2" , 187f , windowHeight / 2 + 85f)
+            menuFontOn.draw(spriteBatch , "Level 2" , 187f , windowHeight / 2 + 85f)
+
+            if (filterLvl2 == 3)
+               menuFontOn.draw(spriteBatch , "Level 3" , 187f , windowHeight / 2 + 85f)
+
+            if (filterLvl2 == 4)
+               menuFontOn.draw(spriteBatch , "Level 2/3" , 187f , windowHeight / 2 + 85f)
+
 
             if (filterLvl2 == 0)
                menuFontOFF.draw(spriteBatch , "Disabled" , 187f , windowHeight / 2 + 85f)
@@ -1591,13 +1600,46 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
                     )
       }
 
-      level2Filter = if (filterLvl2 < 2)
+
+      level3Filter = if (filterLvl2 == 3)
       {
          arrayListOf(
-             // "Item_Armor_C_01_Lv3_C",
-             // "Item_Head_G_01_Lv3_C",
-             //  "Item_Back_C_02_Lv3_C",
-             //  "Item_Back_C_01_Lv3_C",
+               "Item_Armor_C_01_Lv3_C",
+              "Item_Head_G_01_Lv3_C",
+               "Item_Back_C_02_Lv3_C",
+               "Item_Back_C_01_Lv3_C"
+                    )
+      }
+      else
+      {
+         arrayListOf("")
+      }
+
+
+      level23Filter = if (filterLvl2 == 4)
+      {
+         arrayListOf(
+             "Item_Armor_D_01_Lv2_C" ,
+             "Item_Head_F_02_Lv2_C" ,
+             "Item_Head_F_01_Lv2_C" ,
+             "Item_Back_F_01_Lv2_C" ,
+             "Item_Back_F_02_Lv2_C",
+             "Item_Armor_C_01_Lv3_C",
+             "Item_Head_G_01_Lv3_C",
+             "Item_Back_C_02_Lv3_C",
+             "Item_Back_C_01_Lv3_C"
+                    )
+      }
+      else
+      {
+         arrayListOf("")
+      }
+
+
+
+      level2Filter = if (filterLvl2 == 2)
+      {
+         arrayListOf(
              "Item_Armor_D_01_Lv2_C" ,
              "Item_Head_F_02_Lv2_C" ,
              "Item_Head_F_01_Lv2_C" ,
@@ -1610,7 +1652,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
          arrayListOf("")
       }
 
-      level1Filter = if (filterLvl2 < 1)
+      level1Filter = if (filterLvl2 == 1)
       {
          arrayListOf(
              "Item_Back_E_01_Lv1_C" ,
