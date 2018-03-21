@@ -175,7 +175,7 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
     //////////////////////////////
     private var filterWeapon = -1
     private var filterAttach = -1
-    private var filterLvl2 = 0
+    private var filterLvl2 = 1
     private var filterScope = -1
     private var filterHeals = -1
     private var filterAmmo = 1
