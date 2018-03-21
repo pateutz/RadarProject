@@ -1,6 +1,6 @@
 package pubgradar.struct.CMD
 
-import pubg.radar.debugln
+import pubgradar.util.debugln
 import pubgradar.deserializer.channel.ActorChannel.Companion.actorHasWeapons
 import pubgradar.struct.*
 import pubgradar.util.DynamicArray

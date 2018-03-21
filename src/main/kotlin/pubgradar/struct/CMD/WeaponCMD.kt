@@ -1,6 +1,6 @@
 package pubgradar.struct.CMD
 
-import pubg.radar.debugln
+import pubgradar.util.debugln
 import pubgradar.deserializer.channel.ActorChannel.Companion.firing
 import pubgradar.struct.*
 import pubgradar.util.tuple2

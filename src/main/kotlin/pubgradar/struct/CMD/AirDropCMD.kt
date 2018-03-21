@@ -1,6 +1,6 @@
 package pubgradar.struct.CMD
 
-import pubg.radar.debugln
+import pubgradar.util.debugln
 import pubgradar.deserializer.channel.ActorChannel.Companion.airDropLocation
 import pubgradar.struct.*
 

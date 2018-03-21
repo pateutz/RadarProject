@@ -1,6 +1,6 @@
-package pubg.radar
+package pubgradar.util
 
-import pubg.radar.LogLevel.*
+import pubgradar.util.LogLevel.*
 
 enum class LogLevel {
     Off,

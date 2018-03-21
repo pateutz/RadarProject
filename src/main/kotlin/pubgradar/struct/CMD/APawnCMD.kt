@@ -1,5 +1,5 @@
 package pubgradar.struct.CMD
-import pubg.radar.debugln
+import pubgradar.util.debugln
 import pubgradar.deserializer.channel.ActorChannel.Companion.visualActors
 import pubgradar.struct.*
 import pubgradar.struct.Archetype.Other
@@ -30,7 +30,8 @@ object APawnCMD {
       }
       return true
     }
-  }catch (e: Exception){ debugln{("APawnCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}")}}
+  }catch (e: Exception){ debugln{("APawnCMD is throwing somewhere: $e ${e.stackTrace} ${e.message} ${e.cause}")}
+  }
   return false
   }
 }

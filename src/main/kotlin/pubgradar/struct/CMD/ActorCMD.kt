@@ -1,6 +1,6 @@
 package pubgradar.struct.CMD
 
-import pubg.radar.debugln
+import pubgradar.util.debugln
 import pubgradar.GameListener
 import pubgradar.deserializer.ROLE_MAX
 import pubgradar.deserializer.channel.ActorChannel.Companion.actors

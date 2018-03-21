@@ -1,7 +1,7 @@
 package pubgradar.struct.CMD
 
 import com.badlogic.gdx.math.Vector2
-import pubg.radar.debugln
+import pubgradar.util.debugln
 import pubgradar.deserializer.byteRotationScale
 import pubgradar.deserializer.channel.ActorChannel.Companion.playerStateToActor
 import pubgradar.struct.*
@@ -22,6 +22,7 @@ object CharacterCMD {
           if (playerStateGUID.isValid() && !actor.playerStateID.isValid()) {
             actorWithPlayerState[actor.netGUID] = playerStateGUID
             playerStateToActor[playerStateGUID] = actor.netGUID
+            actor.playerStateID = playerStateGUID
           }
         }
       //ACharacter//struct FBasedMovementInfo

@@ -1,7 +1,7 @@
 package pubgradar.struct.CMD
 
 import com.badlogic.gdx.math.Vector2
-import pubg.radar.debugln
+import pubgradar.util.debugln
 import pubgradar.*
 import pubgradar.struct.*
 

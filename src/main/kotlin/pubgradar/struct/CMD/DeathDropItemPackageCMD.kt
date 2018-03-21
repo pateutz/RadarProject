@@ -1,11 +1,10 @@
-package wumo.pubg.struct.CMD
+package pubgradar.struct.CMD
 
-import pubg.radar.debugln
+import pubgradar.util.debugln
 import pubgradar.deserializer.channel.ActorChannel.Companion.airDropLocation
 import pubgradar.struct.*
 import pubgradar.struct.CMD.ActorCMD
 import pubgradar.struct.CMD.updateItemBag
-import wumo.pubg.struct.*
 
 object DeathDropItemPackageCMD {
   fun process(actor:Actor,bunch:Bunch,repObj:NetGuidCacheObject?,waitingHandle:Int,data:HashMap<String,Any?>):Boolean {
