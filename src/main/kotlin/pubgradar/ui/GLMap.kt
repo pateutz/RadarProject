@@ -1454,6 +1454,9 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
 
 
             when (nameToggles) {
+                
+                0 ->
+                {}
 
                 1 -> {
                     nameFont.draw(spriteBatch,
