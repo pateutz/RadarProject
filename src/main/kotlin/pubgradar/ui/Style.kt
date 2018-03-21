@@ -11,38 +11,7 @@ const val windowToMapUnit=mapWidth/initialWindowWidth
 const val runSpeed=6.3*100//6.3m/s
 const val unit=gridWidth/8
 const val unit2=unit/10
-
-//1m=100
-
-const val miniMapWindowWidth=400f
-const val miniMapRadius=500*100f
-const val playerRadius=4000f
-const val healthBarWidth=15000f
-const val healthBarHeight=2000f
-const val directionRadius=16000f
 const val visionRadius=mapWidth/8
-const val fov=90f
-
-const val aimLineWidth=1000f
-const val aimLineRange=50000f
-const val aimCircleRadius=200f
-const val aimTimeThreshold=1000
-const val attackLineDuration=1000
-const val attackMeLineDuration=10000
-const val firingLineDuration = 500
-const val firingLineLength = 20000f
-const val itemZoomThreshold=0.06f
-const val airDropTextScale = 1000f
-
-const val itemScale = 16f
-const val staticItemScale = 200f
-const val mapMarkerScale = 150f
-const val airDropScale = 250f
-const val vehicleScale = 25f
-const val planeScale = 350f
-const val grenadeScale = 15f
-const val corpseScale = 30f
-const val redzoneBombScale = 30f
 
 // 1000ms = 1sec
 const val redzongBombShowDuration = 2000

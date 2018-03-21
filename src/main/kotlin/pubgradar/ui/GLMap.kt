@@ -206,6 +206,34 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
     private var screenOffsetX = 0f
     private var screenOffsetY = 0f
 
+     // Please change these in Settings.kt
+     val miniMapWindowWidth=jsettings.miniMapWindowWidth
+     val miniMapRadius=jsettings.miniMapRadius
+     val playerRadius=jsettings.playerRadius
+     val healthBarWidth=jsettings.healthBarWidth
+     val healthBarHeight=jsettings.healthBarHeight
+     val directionRadius=jsettings.directionRadius
+     val fov=jsettings.fov
+     val aimLineWidth=jsettings.aimLineWidth
+     val aimLineRange=jsettings.aimLineRange
+     val aimCircleRadius=jsettings.aimCircleRadius
+     val aimTimeThreshold=jsettings.aimTimeThreshold
+     val attackLineDuration=jsettings.attackLineDuration
+     val attackMeLineDuration=jsettings.attackMeLineDuration
+     val firingLineDuration = jsettings.firingLineDuration
+     val firingLineLength = jsettings.firingLineLength
+     val itemZoomThreshold= jsettings.itemZoomThreshold
+     val airDropTextScale = jsettings.airDropTextScale
+     val itemScale = jsettings.itemScale
+     val staticItemScale = jsettings.staticItemScale
+     val mapMarkerScale = jsettings.mapMarkerScale
+     val airDropScale = jsettings.airDropScale
+     val vehicleScale = jsettings.vehicleScale
+     val planeScale = jsettings.planeScale
+     val grenadeScale = jsettings.grenadeScale
+     val corpseScale = jsettings.corpseScale
+     val redzoneBombScale = jsettings.redzoneBombScale
+
 
     private fun windowToMap(x: Float, y: Float) =
             Vector2(selfCoords.x + (x - windowWidth / 2.0f) * mapCamera.zoom * windowToMapUnit + screenOffsetX,
