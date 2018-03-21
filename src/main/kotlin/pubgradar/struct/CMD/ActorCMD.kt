@@ -17,7 +17,6 @@ object ActorCMD : GameListener {
         playerStateToActor.clear()
         actorHealth.clear()
     }
-
     val actorWithPlayerState = ConcurrentHashMap<NetworkGUID, NetworkGUID>()
     val playerStateToActor = ConcurrentHashMap<NetworkGUID, NetworkGUID>()
     val actorHealth = ConcurrentHashMap<NetworkGUID, Float>()

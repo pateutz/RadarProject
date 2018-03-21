@@ -130,7 +130,8 @@ User and Password as the ones you created earlier and now click save.
 
 Now try to connect to your VPN and if it succeeded you are ready to go
 
-#### Some image for both methods: https://docs.google.com/document/d/1hrmnwMoVWmH7GTRwHEeOpGHgehKsETgJRQTacAtgIHQ
+#### Read the Guide thats provided
+Located in the Help folder
 
 ## Run
 -----------------

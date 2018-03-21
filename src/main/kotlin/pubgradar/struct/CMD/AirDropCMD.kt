@@ -1,10 +1,7 @@
-package wumo.pubg.struct.CMD
+package pubgradar.struct.CMD
 
 import pubgradar.deserializer.channel.ActorChannel.Companion.airDropLocation
 import pubgradar.struct.*
-import pubgradar.struct.CMD.ActorCMD
-import pubgradar.struct.CMD.updateItemBag
-import wumo.pubg.struct.*
 
 object AirDropCMD {
   fun process(actor:Actor,bunch:Bunch,repObj:NetGuidCacheObject?,waitingHandle:Int,data:HashMap<String,Any?>):Boolean {

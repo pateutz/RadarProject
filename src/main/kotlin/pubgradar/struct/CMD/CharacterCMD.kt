@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Vector2
 import pubgradar.deserializer.byteRotationScale
 import pubgradar.deserializer.channel.ActorChannel.Companion.playerStateToActor
 import pubgradar.struct.*
+import pubgradar.struct.CMD.ActorCMD.actorWithPlayerState
 import java.util.concurrent.ConcurrentHashMap
 
 var selfDirection = 0f
@@ -16,9 +17,9 @@ object CharacterCMD {
     with(bunch) {
       when (waitingHandle) {
         16 -> {
-          val (playerStateGUID,obj) = propertyObject()
-          if (playerStateGUID.isValid() && !actor.playerStateID.isValid()) {
-            actor.playerStateID = playerStateGUID
+          val (playerStateGUID, playerState) = propertyObject()
+          if (playerStateGUID.isValid()) {
+            actorWithPlayerState[actor.netGUID] = playerStateGUID
             playerStateToActor[playerStateGUID] = actor.netGUID
           }
         }

@@ -909,14 +909,21 @@ class GLMap : InputAdapter(), ApplicationListener, GameListener {
         }
         //draw self
           drawMyself(tuple4(actors[selfID] ?: return,selfCoords.x,selfCoords.y,selfDirection))
+
         players?.forEach {
 
             val (actor, x, y, dir) = it
             val (sx, sy) = Vector2(x, y).mapToWindow()
-            val teamId = isTeamMate(actor)
+            val playerStateGUID = actorWithPlayerState[actor.netGUID] ?: return@forEach
+            val PlayerState = actors[playerStateGUID] as? PlayerState ?: return@forEach
+            val selfStateGUID = actorWithPlayerState[selfID] ?: return@forEach
+            val selfState = actors[selfStateGUID] as? PlayerState ?: return@forEach
 
-            if (teamId > 0) {
 
+           // val teamId = isTeamMate(actor)
+            //println(teamId)
+          // if (teamId > 0) {
+            if (PlayerState.teamNumber == selfState.teamNumber) {
                 // Can't wait for the "Omg Players don't draw issues
                 spriteBatch.draw(
                         teamarrow,

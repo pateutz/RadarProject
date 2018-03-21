@@ -156,7 +156,7 @@ object PlayerStateCMD: GameListener {
                   }
                   39 -> {
                       val TotalMovedDistanceMeter = propertyFloat()
-                      println(TotalMovedDistanceMeter)
+                      //println(TotalMovedDistanceMeter)
                       selfStateID = actor.netGUID//only self will get this update
                   }
                   40 -> {
