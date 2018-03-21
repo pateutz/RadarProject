@@ -31,8 +31,8 @@ SDK Dumped by (legitnutty33) Thank You!
 * F12 -> Toggle View Line
 
 
-## How to: Build, Install and RUN PUBG Radar
-https://youtu.be/H_gud8xuP-s
+## How to: Build, Install and RUN MINECRAFT Radar
+https://youtu.be/uppdw51DiZQ
 
 ### Online Mode:
 `java -jar target\RadarProject-Jerry1211-FORK-jar-with-dependencies.jar "Middle PC IP" PortFilter "Game PC IP"`
