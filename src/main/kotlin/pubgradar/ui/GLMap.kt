@@ -173,7 +173,8 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
     private val pinLocation = Vector2()
 
 
-    // Please Change Your Settings in Util/Settings.kt
+    // Please change your pre-build settings in Settings.kt
+    // You can change them in Settings.json after you run the game once too.
     private var filterWeapon = jsettings.filterWeapon
     private var filterAttach = jsettings.filterAttach
     private var filterLvl2 = jsettings.filterLvl2
@@ -185,7 +186,10 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
     private var drawmenu = jsettings.drawmenu
     private var toggleView = jsettings.toggleView
     private var drawDaMap = jsettings.drawDaMap
-    // Please Change Your Settings in Util/Settings.kt
+
+    // Please change your pre-build settings in Settings.kt
+    // You can change them in Settings.json after you run the game once too.
+
     // private var toggleVehicles = -1
     //  private var toggleVNames = -1
 
@@ -206,7 +210,7 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
     private var screenOffsetX = 0f
     private var screenOffsetY = 0f
 
-     // Please change these in Settings.kt
+
      val miniMapWindowWidth=jsettings.miniMapWindowWidth
      val miniMapRadius=jsettings.miniMapRadius
      val playerRadius=jsettings.playerRadius
@@ -233,6 +237,9 @@ class GLMap(private val jsettings: Settings.jsonsettings) : InputAdapter(), Appl
      val grenadeScale = jsettings.grenadeScale
      val corpseScale = jsettings.corpseScale
      val redzoneBombScale = jsettings.redzoneBombScale
+
+    // Please change your pre-build settings in Settings.kt
+    // You can change them in Settings.json after you run the game once too.
 
 
     private fun windowToMap(x: Float, y: Float) =
