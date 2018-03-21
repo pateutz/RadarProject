@@ -18,7 +18,7 @@ object CharacterCMD {
       when (waitingHandle) {
         16 -> {
           val (playerStateGUID, playerState) = propertyObject()
-          if (playerStateGUID.isValid()) {
+          if (playerStateGUID.isValid() && !actor.playerStateID.isValid()) {
             actorWithPlayerState[actor.netGUID] = playerStateGUID
             playerStateToActor[playerStateGUID] = actor.netGUID
           }
