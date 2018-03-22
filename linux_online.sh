@@ -55,5 +55,5 @@ echo "Remote IP (172.27.XXX.X [openvpn]):"
 read remote_ip
 
 #execute the radar with the user given server and remote ip
-java -jar target/RadarProject-Jerry1211-FORK-jar-with-dependencies.jar $server_ip PortFilter $remote_ip
+java -jar target/VMRadar-1.2.1-jar-with-dependencies.jar $server_ip PortFilter $remote_ip
 
