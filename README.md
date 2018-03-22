@@ -3,7 +3,7 @@
 ![Imgur](https://i.imgur.com/PDjwkyR.jpg)
 
 
-join us on [Discord for updates](https://discord.me/radarproject)
+Discord Was Taken Down ToS Violation apparently
 
 SDK Dumped by (legitnutty33) Thank You!
 
