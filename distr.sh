@@ -1,18 +1,18 @@
- YUM_CMD=$(which yum)
-  APT_GET_CMD=$(which apt-get)
-  OTHER_CMD=$(which <other installer>)
+  GNU nano 2.5.3              File: distr.sh                                    
 
- wget --no-cookies --no-check-certificate --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclel
- sudo yum install jdk-9.0.1_linux-x64_bin.rpm
- rm jdk-9.0.1_linux-x64_bin.rpm
- 
+# i tested only on ubunt bcs i dont have centos right now but i will improve so$
+YUM_CMD=$(yum)
+APT_GET_CMD=$(apt-get)
+
  if [[ ! -z $YUM_CMD ]]; then
-    yum install $YUM_PACKAGE_NAME
+    sudo yum update 
+  #  sudo yum install jdk9 # (i dont have centos for testing but i will improve$
+  
  elif [[ ! -z $APT_GET_CMD ]]; then
-    apt-get $DEB_PACKAGE_NAME
- elif [[ ! -z $OTHER_CMD ]]; then
-    $OTHER_CMD <proper arguments>
+    sudo add-apt-repository ppa:webupd8team/java
+    sudo apt-get update
+    sudo apt install oracle-java9-installer
+    sudo apt install oracle-java9-set-default
  else
-    echo "error can't install package $PACKAGE"
-    exit 1;
- fi
+    echo "error can't install package"
+  
