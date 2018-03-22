@@ -217,6 +217,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
    private var level3Filter = arrayListOf("")
    private var level23Filter = arrayListOf("")
    private var level1Filter = arrayListOf("")
+   private var equipFilter = arrayListOf("")
    private var healsToFilter = arrayListOf("")
    private var ammoToFilter = arrayListOf("")
    private var throwToFilter = arrayListOf("")
@@ -864,7 +865,7 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
                menuFontOn.draw(spriteBatch , "Level 1" , 187f , windowHeight / 2 + 85f)
 
             if (filterLvl2 == 2)
-            menuFontOn.draw(spriteBatch , "Level 2" , 187f , windowHeight / 2 + 85f)
+               menuFontOn.draw(spriteBatch , "Level 2" , 187f , windowHeight / 2 + 85f)
 
             if (filterLvl2 == 3)
                menuFontOn.draw(spriteBatch , "Level 3" , 187f , windowHeight / 2 + 85f)
@@ -1604,42 +1605,12 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
       level3Filter = if (filterLvl2 == 3)
       {
          arrayListOf(
-               "Item_Armor_C_01_Lv3_C",
-              "Item_Head_G_01_Lv3_C",
-               "Item_Back_C_02_Lv3_C",
-               "Item_Back_C_01_Lv3_C"
-                    )
-      }
-      else
-      {
-         arrayListOf("")
-      }
-
-
-      level23Filter = if (filterLvl2 == 4)
-      {
-         arrayListOf(
-             "Item_Armor_D_01_Lv2_C" ,
-             "Item_Head_F_02_Lv2_C" ,
-             "Item_Head_F_01_Lv2_C" ,
-             "Item_Back_F_01_Lv2_C" ,
-             "Item_Back_F_02_Lv2_C",
-             "Item_Armor_C_01_Lv3_C",
-             "Item_Head_G_01_Lv3_C",
-             "Item_Back_C_02_Lv3_C",
-             "Item_Back_C_01_Lv3_C"
-                    )
-      }
-      else
-      {
-         arrayListOf("")
-      }
-
-
-
-      level2Filter = if (filterLvl2 == 2)
-      {
-         arrayListOf(
+             // 2 1
+             "Item_Back_E_01_Lv1_C" ,
+             "Item_Armor_E_01_Lv1_C" ,
+             "Item_Head_E_01_Lv1_C" ,
+             "Item_Back_E_02_Lv1_C" ,
+             "Item_Head_E_02_Lv1_C" ,
              "Item_Armor_D_01_Lv2_C" ,
              "Item_Head_F_02_Lv2_C" ,
              "Item_Head_F_01_Lv2_C" ,
@@ -1652,20 +1623,93 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
          arrayListOf("")
       }
 
-      level1Filter = if (filterLvl2 == 1)
+
+      level23Filter = if (filterLvl2 == 4)
       {
          arrayListOf(
+             // 1
              "Item_Back_E_01_Lv1_C" ,
              "Item_Armor_E_01_Lv1_C" ,
              "Item_Head_E_01_Lv1_C" ,
              "Item_Back_E_02_Lv1_C" ,
              "Item_Head_E_02_Lv1_C"
+
                     )
       }
       else
       {
          arrayListOf("")
       }
+
+
+
+      level2Filter = if (filterLvl2 == 2)
+      {
+         arrayListOf(
+             // 1 3
+             "Item_Back_E_01_Lv1_C" ,
+             "Item_Armor_E_01_Lv1_C" ,
+             "Item_Head_E_01_Lv1_C" ,
+             "Item_Back_E_02_Lv1_C" ,
+             "Item_Head_E_02_Lv1_C" ,
+             "Item_Armor_C_01_Lv3_C" ,
+             "Item_Head_G_01_Lv3_C" ,
+             "Item_Back_C_02_Lv3_C" ,
+             "Item_Back_C_01_Lv3_C"
+                    )
+      }
+      else
+      {
+         arrayListOf("")
+      }
+
+      level1Filter = if (filterLvl2 == 1)
+      {
+         arrayListOf(
+             // 2 3
+             "Item_Armor_D_01_Lv2_C" ,
+             "Item_Head_F_02_Lv2_C" ,
+             "Item_Head_F_01_Lv2_C" ,
+             "Item_Back_F_01_Lv2_C" ,
+             "Item_Back_F_02_Lv2_C" ,
+             "Item_Armor_C_01_Lv3_C" ,
+             "Item_Head_G_01_Lv3_C" ,
+             "Item_Back_C_02_Lv3_C" ,
+             "Item_Back_C_01_Lv3_C"
+                    )
+      }
+      else
+      {
+         arrayListOf("")
+      }
+
+
+      equipFilter = if (filterLvl2 == 0)
+      {
+         arrayListOf(
+             // 1 2 3
+             "Item_Back_E_01_Lv1_C" ,
+             "Item_Armor_E_01_Lv1_C" ,
+             "Item_Head_E_01_Lv1_C" ,
+             "Item_Back_E_02_Lv1_C" ,
+             "Item_Head_E_02_Lv1_C" ,
+             "Item_Armor_D_01_Lv2_C" ,
+             "Item_Head_F_02_Lv2_C" ,
+             "Item_Head_F_01_Lv2_C" ,
+             "Item_Back_F_01_Lv2_C" ,
+             "Item_Back_F_02_Lv2_C" ,
+             "Item_Armor_C_01_Lv3_C" ,
+             "Item_Head_G_01_Lv3_C" ,
+             "Item_Back_C_02_Lv3_C" ,
+             "Item_Back_C_01_Lv3_C"
+                    )
+      }
+      else
+      {
+         arrayListOf("")
+      }
+
+
 
 
       val sorted = ArrayList(droppedItemLocation.values)
@@ -1690,8 +1734,8 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
              &&"Item_Weapon_AK47_C" in items||jsettings.DP28&&"Item_Weapon_DP28_C" in items||jsettings.Saiga12
              &&"Item_Weapon_Saiga12_C" in items||jsettings.UMP&&"Item_Weapon_UMP_C" in items||jsettings.UZI
              &&"Item_Weapon_UZI_C" in items||jsettings.Vector&&"Item_Weapon_Vector_C" in items||
-             items !in weaponsToFilter&&items !in scopesToFilter&&items !in attachToFilter&&items !in level2Filter
-             &&items !in level1Filter&&items !in ammoToFilter&&items !in healsToFilter&&items !in throwToFilter
+             items !in weaponsToFilter&&items !in scopesToFilter&&items !in attachToFilter&&items !in level2Filter&&items !in level3Filter&&items !in level23Filter
+             &&items !in level1Filter&&items !in ammoToFilter&&items !in healsToFilter&&items !in throwToFilter &&items !in equipFilter
          )
          {
             if (items in crateIcons)
