@@ -83,13 +83,13 @@ Use Windows 7 ultimate when installing
 
 #### No need to set up VPN using this method!
 
-#### If you have OpenGL error try this:
+#### If you have "GLFW_PLATFORM_ERROR" try this:
 
 1. Press windows + r
 2. Type in msconfig and press enter
 3. Go to 'boot' and check 'safe boot'
 4. Apply/ok and restart VM (it will boot in safe mode)
-5. Go to VirtualBox toolbar and go to Devices -> Insert Guest Additions CD image... https://linuxclub.cs.byu.edu/downloads/tools/virtualization/virtualbox/5.1.30/VBoxGuestAdditions_5.1.30.iso
+5. Go to VirtualBox toolbar and go to Devices -> Insert Guest Additions CD image...
 6. Press Windows + E and open the CD drive for guest additions
 7. Install, select Direct3D support when installing! Do not reboot after installation.
 8. Go to msconfig, boot, disable safe boot and restart to normal windows
