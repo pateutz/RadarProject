@@ -68,6 +68,24 @@ class Settings
        val EnergyDrink : Boolean = false ,
        val Syringe : Boolean = false ,
 
+       var QDSnipe:Boolean = false,
+       var ExSR :Boolean = false,
+       var ExSMG:Boolean = false,
+       var ExQuickAR:Boolean = false,
+       var ExtQuickSMG :Boolean = false,
+       var ExAR :Boolean = false,
+       var CheekSR :Boolean = false,
+       var LoopsSR :Boolean = false,
+       var StockAR :Boolean = false,
+       var SuppressorSR :Boolean = false,
+       var SuppressorAR :Boolean = false,
+       var SuppressorSMG :Boolean = false,
+       var FlashHiderSMG :Boolean = false,
+       var FlashHiderAR :Boolean = false,
+       var CompensatorAR :Boolean = false,
+       var Foregrip :Boolean = false,
+       var AngledForegrip :Boolean = false,
+
        ///
        /// Information Toggles
        /// Default Item Information Toggles

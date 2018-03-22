@@ -1710,8 +1710,6 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
       }
 
 
-
-
       val sorted = ArrayList(droppedItemLocation.values)
       sorted.sortBy {
          order[it._2]
@@ -1724,18 +1722,53 @@ class GLMap(private val jsettings : Settings.jsonsettings) : InputAdapter() , Ap
          val scale = if (it._3) itemScale else staticItemScale
 
 
-         if (jsettings.Bandage&&"Item_Heal_Bandage_C" in items||jsettings.MedKit&&"Item_Heal_MedKit_C" in items||jsettings.FirstAid&&"Item_Heal_FirstAid_C" in items||jsettings.PainKiller&&"Item_Boost_PainKiller_C" in items||jsettings.EnergyDrink&&"Item_Boost_EnergyDrink_C" in items||jsettings.Syringe
-             &&"Item_Boost_AdrenalineSyringe_C" in items||jsettings.AWM&&"Item_Weapon_AWM_C" in items||jsettings.M24&&"Item_Weapon_M24_C" in items||jsettings.Kar98k
-             &&"Item_Weapon_Kar98k_C" in items||jsettings.AUG&&"Item_Weapon_AUG_C" in items||jsettings.M249&&"Item_Weapon_M249_C" in items||jsettings.MK14
-             &&"Item_Weapon_Mk14_C" in items||jsettings.Groza&&"Item_Weapon_Groza_C" in items||jsettings.HK416
-             &&"Item_Weapon_HK416_C" in items||jsettings.SCARL&&"Item_Weapon_SCAR-L_C" in items||jsettings.SCARL
-             &&"Item_Weapon_SCAR-L_C" in items||jsettings.Mini14&&"Item_Weapon_Mini14_C" in items||jsettings.M16A4
-             &&"Item_Weapon_M16A4_C" in items||jsettings.SKS&&"Item_Weapon_SKS_C" in items||jsettings.AK47
-             &&"Item_Weapon_AK47_C" in items||jsettings.DP28&&"Item_Weapon_DP28_C" in items||jsettings.Saiga12
-             &&"Item_Weapon_Saiga12_C" in items||jsettings.UMP&&"Item_Weapon_UMP_C" in items||jsettings.UZI
-             &&"Item_Weapon_UZI_C" in items||jsettings.Vector&&"Item_Weapon_Vector_C" in items||
+         if (
+             jsettings.Bandage&&"Item_Heal_Bandage_C" in items||
+             jsettings.MedKit&&"Item_Heal_MedKit_C" in items||
+             jsettings.FirstAid&&"Item_Heal_FirstAid_C" in items||
+             jsettings.PainKiller&&"Item_Boost_PainKiller_C" in items||
+             jsettings.EnergyDrink&&"Item_Boost_EnergyDrink_C" in items||
+             jsettings.Syringe&&"Item_Boost_AdrenalineSyringe_C" in items||
+
+             jsettings.AWM&&"Item_Weapon_AWM_C" in items||
+             jsettings.M24&&"Item_Weapon_M24_C" in items||
+             jsettings.Kar98k&&"Item_Weapon_Kar98k_C" in items||
+             jsettings.AUG&&"Item_Weapon_AUG_C" in items||
+             jsettings.M249&&"Item_Weapon_M249_C" in items||
+             jsettings.MK14&&"Item_Weapon_Mk14_C" in items||
+             jsettings.Groza&&"Item_Weapon_Groza_C" in items||
+             jsettings.HK416&&"Item_Weapon_HK416_C" in items||
+             jsettings.SCARL&&"Item_Weapon_SCAR-L_C" in items||
+             jsettings.SCARL&&"Item_Weapon_SCAR-L_C" in items||
+             jsettings.Mini14&&"Item_Weapon_Mini14_C" in items||
+             jsettings.M16A4&&"Item_Weapon_M16A4_C" in items||
+             jsettings.SKS&&"Item_Weapon_SKS_C" in items||
+             jsettings.AK47&&"Item_Weapon_AK47_C" in items||
+             jsettings.DP28&&"Item_Weapon_DP28_C" in items||
+             jsettings.Saiga12&&"Item_Weapon_Saiga12_C" in items||
+             jsettings.UMP&&"Item_Weapon_UMP_C" in items||
+             jsettings.UZI&&"Item_Weapon_UZI_C" in items||
+             jsettings.Vector&&"Item_Weapon_Vector_C" in items||
+             jsettings.QDSnipe&&"Item_Attach_Weapon_Magazine_ExtendedQuickDraw_SniperRifle_C" in items||
+             jsettings.ExSR&&"Item_Attach_Weapon_Magazine_Extended_SniperRifle_C" in items||
+             jsettings.ExSMG&&"Item_Attach_Weapon_Magazine_Extended_Medium_C" in items||
+             jsettings.ExQuickAR&&"Item_Attach_Weapon_Magazine_ExtendedQuickDraw_Large_C" in items||
+             jsettings.ExtQuickSMG&&"Item_Attach_Weapon_Magazine_ExtendedQuickDraw_Medium_C" in items||
+             jsettings.ExAR&&"Item_Attach_Weapon_Magazine_Extended_Large_C" in items||
+             jsettings.CheekSR&&"Item_Attach_Weapon_Stock_SniperRifle_CheekPad_C" in items||
+             jsettings.LoopsSR&&"Item_Attach_Weapon_Stock_SniperRifle_BulletLoops_C" in items||
+             jsettings.StockAR&&"Item_Attach_Weapon_Stock_AR_Composite_C" in items||
+             jsettings.SuppressorSR&&"Item_Attach_Weapon_Muzzle_Suppressor_SniperRifle_C" in items||
+             jsettings.SuppressorAR&&"Item_Attach_Weapon_Muzzle_Suppressor_Large_C" in items||
+             jsettings.SuppressorSMG&&"Item_Attach_Weapon_Muzzle_Suppressor_Medium_C" in items||
+             jsettings.FlashHiderSMG&&"Item_Attach_Weapon_Muzzle_FlashHider_Medium_C" in items||
+             jsettings.FlashHiderAR&&"Item_Attach_Weapon_Muzzle_FlashHider_Large_C" in items||
+             jsettings.CompensatorAR&&"Item_Attach_Weapon_Muzzle_Compensator_Medium_C" in items||
+             jsettings.Foregrip&&"Item_Attach_Weapon_Lower_Foregrip_C" in items||
+             jsettings.AngledForegrip&&"Item_Attach_Weapon_Lower_AngledForeGrip_C" in items||
+
              items !in weaponsToFilter&&items !in scopesToFilter&&items !in attachToFilter&&items !in level2Filter&&items !in level3Filter&&items !in level23Filter
-             &&items !in level1Filter&&items !in ammoToFilter&&items !in healsToFilter&&items !in throwToFilter &&items !in equipFilter
+             &&items !in level1Filter&&items !in ammoToFilter&&items !in healsToFilter&&items !in throwToFilter&&items !in equipFilter
          )
          {
             if (items in crateIcons)
